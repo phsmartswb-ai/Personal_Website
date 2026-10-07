@@ -100,7 +100,7 @@ Configure your environment variables in `.env`:
 # CounterAPI Configuration (for persistent visitor counter)
 COUNTER_WORKSPACE=your_workspace_name
 COUNTER_API_KEY=your_counterapi_key
-INITIAL_VISITOR_COUNT=1289
+INITIAL_VISITOR_COUNT=xxxx
 
 # Optional ping test response
 PING_MESSAGE="ping pong"
