@@ -62,7 +62,7 @@ export const handleVisitors: RequestHandler = async (req, res) => {
   if (COUNTER_API_KEY) {
     try {
       const endpoint = isRead
-        ? `https://api.counterapi.dev/v2/${encodeURIComponent(COUNTER_WORKSPACE)}/${encodeURIComponent(COUNTER_KEY)}/`
+        ? `https://api.counterapi.dev/v2/${encodeURIComponent(COUNTER_WORKSPACE)}/${encodeURIComponent(COUNTER_KEY)}`
         : `https://api.counterapi.dev/v2/${encodeURIComponent(COUNTER_WORKSPACE)}/${encodeURIComponent(COUNTER_KEY)}/up`;
 
       const externalRes = await fetch(endpoint, {
@@ -75,7 +75,10 @@ export const handleVisitors: RequestHandler = async (req, res) => {
       });
 
       if (!externalRes.ok) {
-        throw new Error(`CounterAPI returned HTTP ${externalRes.status}`);
+        const errorBody = (await externalRes.text()).slice(0, 500);
+        throw new Error(
+          `CounterAPI returned HTTP ${externalRes.status}: ${errorBody || externalRes.statusText}`
+        );
       }
 
       const payload = (await externalRes.json()) as {
