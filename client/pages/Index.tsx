@@ -44,7 +44,7 @@ const skillGroups = [
   },
   {
     label: "Testing",
-    skills: ["Automation", "Q-Test", "Virtuoso", "Jasmine", "Karma", "Jest"],
+    skills: ["Automation", "qTest", "Virtuoso", "Jasmine", "Karma", "Jest"],
   },
   {
     label: "Security & Monitoring",
@@ -60,7 +60,7 @@ const skillGroups = [
   },
   {
     label: "CI/CD & DevOps",
-    skills: ["Jenkins", "Docker", "AWS", "kubernetes"],
+    skills: ["Jenkins", "Docker", "AWS", "Kubernetes"],
   },
   {
     label: "Delivery & Tracking",
@@ -70,7 +70,7 @@ const skillGroups = [
       "Confluence",
       "Agile / Scrum",
       "Application security",
-      "Service-now",
+      "ServiceNow",
     ],
   },
 ];
@@ -270,48 +270,56 @@ function SectionLabel({
 export default function Index() {
   return (
     <main className="min-h-screen overflow-hidden bg-paper text-ink selection:bg-lime selection:text-ink">
-      <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
-        <a
-          href="#home"
-          className="group flex items-center gap-3"
-          aria-label="Hemanth Palakaluri home"
-        >
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-ink font-display text-sm font-bold text-lime transition-transform group-hover:rotate-12">
-            H
-          </span>
-          <span className="font-display text-sm font-bold tracking-tight">
-            HP<span className="text-moss">.</span>
-          </span>
-        </a>
-        <nav className="hidden items-center gap-8 text-[13px] font-medium text-ink/70 md:flex">
-          <a className="transition-colors hover:text-moss" href="#about">
-            About
+      <header className="sticky top-0 z-50 border-b border-ink/[0.07] bg-paper/90 backdrop-blur-xl">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
+          <a
+            href="#home"
+            className="group flex items-center gap-3"
+            aria-label="Hemanth Palakaluri home"
+          >
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-ink font-display text-sm font-bold text-lime transition-transform group-hover:rotate-12">
+              H
+            </span>
+            <span className="font-display text-sm font-bold tracking-tight">
+              Hemanth<span className="text-moss">.</span>
+            </span>
           </a>
-          <a className="transition-colors hover:text-moss" href="#work">
-            Work
+          <nav
+            className="hidden items-center gap-7 text-[12px] font-semibold text-ink/60 md:flex"
+            aria-label="Primary navigation"
+          >
+            <a className="transition-colors hover:text-moss" href="#about">
+              About
+            </a>
+            <a className="transition-colors hover:text-moss" href="#work">
+              Work
+            </a>
+            <a className="transition-colors hover:text-moss" href="#experience">
+              Experience
+            </a>
+            <a className="transition-colors hover:text-moss" href="#expertise">
+              Expertise
+            </a>
+            <a className="transition-colors hover:text-moss" href="#personal-ai">
+              Projects
+            </a>
+          </nav>
+          <a
+            href="mailto:hemanth.palakaluri@gmail.com?subject=Opportunity%20for%20Hemanth%20Palakaluri"
+            className="group inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-moss"
+          >
+            Contact me{" "}
+            <ArrowUpRight
+              size={14}
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
           </a>
-          <a className="transition-colors hover:text-moss" href="#personal-ai">
-            AI Builds
-          </a>
-          <a className="transition-colors hover:text-moss" href="#expertise">
-            Expertise
-          </a>
-        </nav>
-        <a
-          href="mailto:hemanth.palakaluri@gmail.com"
-          className="group inline-flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2.5 text-xs font-semibold transition-all hover:border-ink hover:bg-ink hover:text-paper"
-        >
-          Let’s talk{" "}
-          <ArrowUpRight
-            size={14}
-            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          />
-        </a>
+        </div>
       </header>
 
       <section
         id="home"
-        className="mx-auto grid min-h-[620px] w-full max-w-7xl items-center gap-10 px-5 pb-20 pt-14 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:pb-28 md:pt-20 lg:px-12"
+        className="mx-auto grid min-h-[620px] w-full max-w-7xl scroll-mt-24 items-center gap-10 px-5 pb-20 pt-14 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:pb-28 md:pt-20 lg:px-12"
       >
         <div className="relative z-10">
           <div className="mb-7 flex flex-wrap items-center gap-3">
@@ -322,7 +330,7 @@ export default function Index() {
             <VisitorCounter variant="badge" />
           </div>
           <p className="mb-4 font-mono text-xs tracking-wide text-ink/45">
-            BANGALORE, INDIA · 10+ YEARS BUILDING FOR THE WEB
+            BENGALURU, INDIA · SENIOR TECHNICAL LEAD
           </p>
           <h1 className="max-w-3xl font-display text-[clamp(3.5rem,8vw,7.5rem)] font-semibold leading-[0.9] tracking-[-0.075em]">
             Hemanth
@@ -330,20 +338,21 @@ export default function Index() {
             <span className="text-moss">Palakaluri</span>
             <span className="text-[#a5bd60]">.</span>
           </h1>
-          <h2 className="mt-7 max-w-xl text-lg font-medium leading-snug tracking-tight sm:text-xl">
-            Senior Technical Lead <span className="text-ink/35">/</span>{" "}
-            Front-end Engineering
+          <h2 className="mt-7 max-w-2xl text-xl font-semibold leading-snug tracking-[-0.025em] sm:text-2xl">
+            Building scalable enterprise products from{" "}
+            <span className="text-moss">interface to cloud.</span>
           </h2>
-          <p className="mt-5 max-w-lg text-sm leading-7 text-ink/60 sm:text-base sm:leading-8">
-            I turn complex product challenges into clear, thoughtful digital
-            experiences—while helping teams do their best work along the way.
+          <p className="mt-5 max-w-xl text-sm leading-7 text-ink/60 sm:text-base sm:leading-8">
+            Senior Technical Lead with 10+ years of experience delivering
+            secure, high-quality web platforms, shaping front-end architecture,
+            and helping multidisciplinary teams ship with confidence.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#work"
               className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-moss"
             >
-              Explore my work{" "}
+              View selected work{" "}
               <ArrowDown
                 size={15}
                 className="transition-transform group-hover:translate-y-0.5"
@@ -353,7 +362,7 @@ export default function Index() {
               href="mailto:hemanth.palakaluri@gmail.com"
               className="inline-flex items-center gap-2 px-3 py-3 text-sm font-medium text-ink/65 transition hover:text-ink"
             >
-              <Mail size={16} /> Get in touch
+              <Mail size={16} /> Discuss an opportunity
             </a>
             <a
               href="http://www.linkedin.com/in/hemanth-palakaluri-5a44049a"
@@ -375,7 +384,7 @@ export default function Index() {
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-ink/50">
             <span className="inline-flex items-center gap-2">
-              <MapPin size={14} /> Bangalore, India
+              <MapPin size={14} /> Bengaluru, India
             </span>
             <a
               className="inline-flex items-center gap-2 transition hover:text-ink"
@@ -444,20 +453,32 @@ export default function Index() {
       <div className="border-y border-ink/10 bg-[#eeefe7]">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-5 sm:px-8 lg:px-12">
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/45">
-            A few things I bring
+            Recruiter snapshot
           </p>
-          <div className="flex flex-wrap gap-x-7 gap-y-2 text-xs font-medium text-ink/65 sm:gap-x-10">
-            <span>Technical leadership</span>
-            <span>Front-end architecture</span>
-            <span>Enterprise products</span>
-            <span>AI-assisted delivery</span>
+          <div className="grid flex-1 grid-cols-2 gap-x-7 gap-y-4 sm:grid-cols-4 sm:gap-x-10">
+            <div>
+              <strong className="block font-display text-lg text-ink">10+ years</strong>
+              <span className="text-[11px] text-ink/50">Product engineering</span>
+            </div>
+            <div>
+              <strong className="block font-display text-lg text-ink">25% faster</strong>
+              <span className="text-[11px] text-ink/50">Release cycle</span>
+            </div>
+            <div>
+              <strong className="block font-display text-lg text-ink">3 companies</strong>
+              <span className="text-[11px] text-ink/50">Enterprise delivery</span>
+            </div>
+            <div>
+              <strong className="block font-display text-lg text-ink">Full stack</strong>
+              <span className="text-[11px] text-ink/50">UI, APIs & cloud</span>
+            </div>
           </div>
         </div>
       </div>
 
       <section
         id="about"
-        className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 md:grid-cols-[0.7fr_1.3fr] md:py-32 lg:px-12"
+        className="mx-auto grid max-w-7xl scroll-mt-24 gap-12 px-5 py-24 sm:px-8 md:grid-cols-[0.7fr_1.3fr] md:py-32 lg:px-12"
       >
         <div>
           <SectionLabel number="01">A little about me</SectionLabel>
@@ -468,15 +489,16 @@ export default function Index() {
         </div>
         <div className="max-w-2xl pt-1">
           <p className="text-lg leading-8 tracking-[-0.02em] text-ink/75 sm:text-xl sm:leading-9">
-            I’m a hands-on engineering leader with a front-end heart. For more
-            than a decade, I’ve helped teams build enterprise applications that
-            feel intuitive, scale reliably, and solve real problems.
+            I’m a hands-on engineering leader who turns complex requirements
+            into maintainable products. For more than a decade, I’ve helped
+            teams build enterprise applications that are intuitive, reliable,
+            secure, and ready to scale.
           </p>
           <p className="mt-5 text-sm leading-7 text-ink/55 sm:text-base sm:leading-8">
-            From shaping UI architecture to polishing the last interaction, I
-            thrive at the intersection of thoughtful design and dependable
-            engineering. Today, I’m also exploring how AI-assisted development
-            can make the entire craft more focused and effective.
+            I work across architecture, implementation, delivery, and
+            production support, partnering closely with product, UX, backend,
+            QA, and security. I also apply AI-assisted development where it
+            improves engineering speed, quality, and decision-making.
           </p>
           <div className="mt-9 grid grid-cols-2 gap-6 border-t border-ink/10 pt-7 sm:grid-cols-3">
             <div>
@@ -501,7 +523,10 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="work" className="bg-ink py-24 text-paper sm:py-28">
+      <section
+        id="work"
+        className="scroll-mt-20 bg-ink py-24 text-paper sm:py-28"
+      >
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
@@ -509,7 +534,8 @@ export default function Index() {
                 Selected work
               </SectionLabel>
               <h2 className="max-w-xl font-display text-4xl font-medium tracking-[-0.06em] sm:text-6xl">
-                Products with <span className="text-lime">purpose.</span>
+                Enterprise work with{" "}
+                <span className="text-lime">measurable impact.</span>
               </h2>
             </div>
             <p className="max-w-xs pb-1 text-sm leading-6 text-paper/55">
@@ -597,7 +623,10 @@ export default function Index() {
       </section>
 
       
-      <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 md:py-28 lg:px-12">
+      <section
+        id="experience"
+        className="mx-auto max-w-7xl scroll-mt-24 px-5 py-24 sm:px-8 md:py-28 lg:px-12"
+      >
         <div className="grid gap-12 md:grid-cols-[0.7fr_1.3fr]">
           <div>
             <SectionLabel number="03">Experience</SectionLabel>
@@ -661,7 +690,7 @@ export default function Index() {
 
       <section
         id="expertise"
-        className="relative overflow-hidden border-y border-ink/10 bg-[#d9f27c] py-24 sm:py-28"
+        className="relative scroll-mt-20 overflow-hidden border-y border-ink/10 bg-[#d9f27c] py-24 sm:py-28"
       >
         <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full border border-ink/10 sm:h-[28rem] sm:w-[28rem]" />
         <div className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 rounded-full border border-ink/10 sm:h-80 sm:w-80" />
@@ -840,7 +869,7 @@ export default function Index() {
 
       <section
         id="personal-ai"
-        className="border-y border-ink/10 bg-[#eeefe7] py-24 sm:py-28"
+        className="scroll-mt-20 border-y border-ink/10 bg-[#eeefe7] py-24 sm:py-28"
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <div className="grid gap-10 md:grid-cols-[0.72fr_1.28fr] md:items-end">
@@ -852,13 +881,13 @@ export default function Index() {
             </div>
             <div className="max-w-xl">
               <p className="text-base leading-7 text-ink/75 sm:text-lg sm:leading-8">
-                I use AI-assisted ideation and vibe coding to turn concepts into
-                visual, interactive products. Each project is a hands-on way to
-                explore new tools, strengthen my applied AI skills, and stay
-                current through continuous experimentation.
+                I use AI-assisted engineering and rapid prototyping to turn
+                product concepts into working digital experiences. These
+                independent builds demonstrate product thinking, technical
+                range, and the ability to move from idea to usable interface.
               </p>
               <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-moss">
-                Independent experiments · From idea to interface
+                Independent products · From concept to working experience
               </p>
             </div>
           </div>
@@ -918,15 +947,15 @@ export default function Index() {
           <div className="flex flex-col justify-between gap-10 border-b border-white/15 pb-12 md:flex-row md:items-end">
             <div>
               <h2 className="max-w-2xl font-display text-5xl font-medium leading-[0.98] tracking-[-0.07em] sm:text-7xl">
-                Have a good
+                Looking for a senior
                 <br />
-                challenge in mind<span className="text-lime">?</span>
+                engineering leader<span className="text-lime">?</span>
               </h2>
               <a
                 href="mailto:hemanth.palakaluri@gmail.com"
                 className="group mt-7 inline-flex items-center gap-3 text-lg font-medium text-lime transition hover:text-white sm:text-xl"
               >
-                Let’s make it happen{" "}
+                Start a conversation{" "}
                 <ArrowUpRight
                   size={20}
                   className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -941,7 +970,7 @@ export default function Index() {
                 <Mail size={15} /> hemanth.palakaluri@gmail.com
               </a>
               <span className="flex items-center gap-2">
-                <MapPin size={15} /> Bangalore, India
+                <MapPin size={15} /> Bengaluru, India
               </span>
             </div>
           </div>
