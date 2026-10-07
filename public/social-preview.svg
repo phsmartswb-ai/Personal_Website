@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Hemanth Palakaluri — Senior Technical Lead</title>
+  <desc id="desc">Portfolio social preview</desc>
+  <rect width="1200" height="630" fill="#f5f5ef"/>
+  <circle cx="1050" cy="90" r="260" fill="none" stroke="#17231f" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="1050" cy="90" r="180" fill="#d9f27c"/>
+  <text x="80" y="105" fill="#496a58" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4">PORTFOLIO · 2026</text>
+  <text x="80" y="270" fill="#17231f" font-family="Arial, sans-serif" font-size="86" font-weight="700">Hemanth</text>
+  <text x="80" y="365" fill="#496a58" font-family="Arial, sans-serif" font-size="86" font-weight="700">Palakaluri.</text>
+  <text x="80" y="455" fill="#17231f" font-family="Arial, sans-serif" font-size="34" font-weight="600">Senior Technical Lead</text>
+  <text x="80" y="515" fill="#17231f" fill-opacity=".7" font-family="Arial, sans-serif" font-size="26">Building scalable products from interface to cloud.</text>
+</svg>

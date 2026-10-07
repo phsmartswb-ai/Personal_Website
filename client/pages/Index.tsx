@@ -10,6 +10,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { VisitorCounter } from "@/components/VisitorCounter";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const skillGroups = [
   {
@@ -26,7 +28,7 @@ const skillGroups = [
       "SCSS",
       "React Native",
       "MongoDB",
-      "AI-assisted development"
+      "AI-assisted development",
     ],
   },
   {
@@ -55,7 +57,7 @@ const skillGroups = [
       "Dynatrace",
       "Splunk",
       "CyberArk",
-      "Secret Management"
+      "Secret Management",
     ],
   },
   {
@@ -123,6 +125,7 @@ const companies = [
     projects: [
       {
         name: "Active IQ",
+        slug: "active-iq",
         type: "AI-powered digital advisor",
         copy: "Predictive analytics and proactive support for global hybrid-cloud infrastructure.",
         stack: "Angular · React · GraphQL",
@@ -131,6 +134,7 @@ const companies = [
       },
       {
         name: "NEO",
+        slug: "neo",
         type: "Digital adoption platform",
         copy: "Built from the ground up across architecture, full-stack development, cloud delivery, and operations.",
         stack: "Next.js · Python · AWS",
@@ -139,6 +143,7 @@ const companies = [
       },
       {
         name: "BlueXP Sustainability",
+        slug: "bluexp-sustainability",
         type: "Energy analytics",
         copy: "Enterprise dashboards for energy-consumption tracking and sustainability workflows.",
         stack: "React · TypeScript · GraphQL",
@@ -154,6 +159,7 @@ const companies = [
     projects: [
       {
         name: "Admin Catalogue",
+        slug: undefined,
         type: "Product configuration",
         copy: "Configurable modules for product setup, user-specific views, charts, and block-based interfaces.",
         stack: "React · TypeScript · Fabric UI",
@@ -162,6 +168,7 @@ const companies = [
       },
       {
         name: "Advantage Housing",
+        slug: undefined,
         type: "Housing management",
         copy: "Web-based housing workflows built with reusable Angular components and Kendo UI.",
         stack: "Angular · TypeScript · Kendo UI",
@@ -177,6 +184,7 @@ const companies = [
     projects: [
       {
         name: "Solar Monitoring",
+        slug: undefined,
         type: "Web & hybrid mobile",
         copy: "Solar-generation analytics with chart drilling and detailed energy views for enterprise clients.",
         stack: "Angular · Ionic · Cordova",
@@ -185,6 +193,7 @@ const companies = [
       },
       {
         name: "Analytics / Data Insights",
+        slug: undefined,
         type: "Enterprise analytics",
         copy: "Analytics-oriented interfaces that connect business insights with backend services.",
         stack: "AngularJS · JavaScript · jQuery",
@@ -268,6 +277,62 @@ function SectionLabel({
 }
 
 export default function Index() {
+  useEffect(() => {
+    const title = "Hemanth Palakaluri | Senior Technical Lead";
+    const description =
+      "Hemanth Palakaluri is a Senior Technical Lead with 10+ years of experience building scalable enterprise products across front-end architecture, full-stack delivery, cloud, and technical leadership.";
+    const url = "https://hemanthpalakaluri.netlify.app/";
+    document.title = title;
+    document
+      .querySelector<HTMLMetaElement>('meta[name="description"]')
+      ?.setAttribute("content", description);
+    document
+      .querySelector<HTMLMetaElement>('meta[property="og:title"]')
+      ?.setAttribute("content", title);
+    document
+      .querySelector<HTMLMetaElement>('meta[property="og:description"]')
+      ?.setAttribute(
+        "content",
+        "Senior Technical Lead building scalable enterprise products from interface to cloud.",
+      );
+    document
+      .querySelector<HTMLMetaElement>('meta[property="og:url"]')
+      ?.setAttribute("content", url);
+    document
+      .querySelector<HTMLMetaElement>('meta[name="twitter:title"]')
+      ?.setAttribute("content", title);
+    document
+      .querySelector<HTMLLinkElement>('link[rel="canonical"]')
+      ?.setAttribute("href", url);
+    const structuredData =
+      document.querySelector<HTMLScriptElement>("#structured-data");
+    if (structuredData) {
+      structuredData.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        mainEntity: {
+          "@type": "Person",
+          name: "Hemanth Palakaluri",
+          jobTitle: "Senior Technical Lead",
+          url,
+          sameAs: [
+            "https://www.linkedin.com/in/hemanth-palakaluri-5a44049a",
+            "https://github.com/phsmartswb-ai",
+          ],
+          knowsAbout: [
+            "React",
+            "Angular",
+            "TypeScript",
+            "Front-end architecture",
+            "Full-stack development",
+            "AWS",
+            "Technical leadership",
+          ],
+        },
+      });
+    }
+  }, []);
+
   return (
     <main className="min-h-screen overflow-hidden bg-paper text-ink selection:bg-lime selection:text-ink">
       <header className="sticky top-0 z-50 border-b border-ink/[0.07] bg-paper/90 backdrop-blur-xl">
@@ -300,7 +365,10 @@ export default function Index() {
             <a className="transition-colors hover:text-moss" href="#expertise">
               Expertise
             </a>
-            <a className="transition-colors hover:text-moss" href="#personal-ai">
+            <a
+              className="transition-colors hover:text-moss"
+              href="#personal-ai"
+            >
               Projects
             </a>
           </nav>
@@ -365,12 +433,14 @@ export default function Index() {
               <Mail size={16} /> Discuss an opportunity
             </a>
             <a
-              href="http://www.linkedin.com/in/hemanth-palakaluri-5a44049a"
+              href="https://www.linkedin.com/in/hemanth-palakaluri-5a44049a"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2.5 text-xs font-semibold transition hover:border-ink hover:bg-ink hover:text-paper"
             >
-              <span className="grid h-3.5 w-3.5 place-items-center rounded-[2px] border border-current text-[9px] font-bold leading-none">in</span>
+              <span className="grid h-3.5 w-3.5 place-items-center rounded-[2px] border border-current text-[9px] font-bold leading-none">
+                in
+              </span>
               LinkedIn
             </a>
             <a
@@ -457,19 +527,31 @@ export default function Index() {
           </p>
           <div className="grid flex-1 grid-cols-2 gap-x-7 gap-y-4 sm:grid-cols-4 sm:gap-x-10">
             <div>
-              <strong className="block font-display text-lg text-ink">10+ years</strong>
-              <span className="text-[11px] text-ink/50">Product engineering</span>
+              <strong className="block font-display text-lg text-ink">
+                10+ years
+              </strong>
+              <span className="text-[11px] text-ink/50">
+                Product engineering
+              </span>
             </div>
             <div>
-              <strong className="block font-display text-lg text-ink">25% faster</strong>
+              <strong className="block font-display text-lg text-ink">
+                25% faster
+              </strong>
               <span className="text-[11px] text-ink/50">Release cycle</span>
             </div>
             <div>
-              <strong className="block font-display text-lg text-ink">3 companies</strong>
-              <span className="text-[11px] text-ink/50">Enterprise delivery</span>
+              <strong className="block font-display text-lg text-ink">
+                3 companies
+              </strong>
+              <span className="text-[11px] text-ink/50">
+                Enterprise delivery
+              </span>
             </div>
             <div>
-              <strong className="block font-display text-lg text-ink">Full stack</strong>
+              <strong className="block font-display text-lg text-ink">
+                Full stack
+              </strong>
               <span className="text-[11px] text-ink/50">UI, APIs & cloud</span>
             </div>
           </div>
@@ -495,10 +577,10 @@ export default function Index() {
             secure, and ready to scale.
           </p>
           <p className="mt-5 text-sm leading-7 text-ink/55 sm:text-base sm:leading-8">
-            I work across architecture, implementation, delivery, and
-            production support, partnering closely with product, UX, backend,
-            QA, and security. I also apply AI-assisted development where it
-            improves engineering speed, quality, and decision-making.
+            I work across architecture, implementation, delivery, and production
+            support, partnering closely with product, UX, backend, QA, and
+            security. I also apply AI-assisted development where it improves
+            engineering speed, quality, and decision-making.
           </p>
           <div className="mt-9 grid grid-cols-2 gap-6 border-t border-ink/10 pt-7 sm:grid-cols-3">
             <div>
@@ -571,50 +653,67 @@ export default function Index() {
                       : "lg:grid-cols-2"
                   }`}
                 >
-                  {company.projects.map((project, index) => (
-                    <article
-                      key={project.name}
-                      className="group overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] transition hover:-translate-y-1 hover:bg-white/[0.075]"
-                    >
-                      <div
-                        className={`relative mx-3 mt-3 flex aspect-[1.65] items-center justify-center overflow-hidden rounded-[0.9rem] ${project.color}`}
-                      >
+                  {company.projects.map((project, index) => {
+                    const content = (
+                      <>
                         <div
-                          className="absolute inset-0 opacity-30"
-                          style={{
-                            backgroundImage:
-                              "radial-gradient(#17231f 0.7px, transparent 0.7px)",
-                            backgroundSize: "12px 12px",
-                          }}
-                        />
-                        <div className="absolute -right-8 -top-12 h-44 w-44 rounded-full border border-ink/15" />
-                        <div className="absolute -right-2 -top-6 h-32 w-32 rounded-full border border-ink/15" />
-                        <span className="relative font-display text-7xl font-semibold tracking-[-0.09em] text-ink/80">
-                          {project.mark}
-                        </span>
-                        <span className="absolute left-4 top-4 font-mono text-[10px] text-ink/50">
-                          0{index + 1} / 0{company.projects.length}
-                        </span>
-                        <span className="absolute bottom-3 right-3 grid h-8 w-8 place-items-center rounded-full bg-ink/90 text-lime transition-transform group-hover:rotate-45">
-                          <ArrowUpRight size={15} />
-                        </span>
-                      </div>
-                      <div className="p-4 pb-5">
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-lime/75">
-                          {project.type}
-                        </p>
-                        <h4 className="mt-2 font-display text-xl font-semibold tracking-tight">
-                          {project.name}
-                        </h4>
-                        <p className="mt-2 min-h-[60px] text-xs leading-5 text-paper/55">
-                          {project.copy}
-                        </p>
-                        <div className="mt-4 border-t border-white/10 pt-3 text-[10px] text-paper/45">
-                          {project.stack}
+                          className={`relative mx-3 mt-3 flex aspect-[1.65] items-center justify-center overflow-hidden rounded-[0.9rem] ${project.color}`}
+                        >
+                          <div
+                            className="absolute inset-0 opacity-30"
+                            style={{
+                              backgroundImage:
+                                "radial-gradient(#17231f 0.7px, transparent 0.7px)",
+                              backgroundSize: "12px 12px",
+                            }}
+                          />
+                          <div className="absolute -right-8 -top-12 h-44 w-44 rounded-full border border-ink/15" />
+                          <div className="absolute -right-2 -top-6 h-32 w-32 rounded-full border border-ink/15" />
+                          <span className="relative font-display text-7xl font-semibold tracking-[-0.09em] text-ink/80">
+                            {project.mark}
+                          </span>
+                          <span className="absolute left-4 top-4 font-mono text-[10px] text-ink/50">
+                            0{index + 1} / 0{company.projects.length}
+                          </span>
+                          <span className="absolute bottom-3 right-3 grid h-8 w-8 place-items-center rounded-full bg-ink/90 text-lime transition-transform group-hover:rotate-45">
+                            <ArrowUpRight size={15} />
+                          </span>
                         </div>
-                      </div>
-                    </article>
-                  ))}
+                        <div className="p-4 pb-5">
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-lime/75">
+                            {project.type}
+                          </p>
+                          <h4 className="mt-2 font-display text-xl font-semibold tracking-tight">
+                            {project.name}
+                          </h4>
+                          <p className="mt-2 min-h-[60px] text-xs leading-5 text-paper/55">
+                            {project.copy}
+                          </p>
+                          <div className="mt-4 border-t border-white/10 pt-3 text-[10px] text-paper/45">
+                            {project.stack}
+                          </div>
+                        </div>
+                      </>
+                    );
+
+                    return project.slug ? (
+                      <Link
+                        key={project.name}
+                        to={`/projects/${project.slug}`}
+                        className="group overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] transition hover:-translate-y-1 hover:bg-white/[0.075]"
+                        aria-label={`Read the ${project.name} case study`}
+                      >
+                        {content}
+                      </Link>
+                    ) : (
+                      <article
+                        key={project.name}
+                        className="group overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045]"
+                      >
+                        {content}
+                      </article>
+                    );
+                  })}
                 </div>
               </section>
             ))}
@@ -622,7 +721,6 @@ export default function Index() {
         </div>
       </section>
 
-      
       <section
         id="experience"
         className="mx-auto max-w-7xl scroll-mt-24 px-5 py-24 sm:px-8 md:py-28 lg:px-12"
@@ -812,7 +910,9 @@ export default function Index() {
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#e5edcd] text-moss">
                   <Code2 size={20} />
                 </span>
-                <span className="font-mono text-[10px] text-ink/35">01 / BUILD</span>
+                <span className="font-mono text-[10px] text-ink/35">
+                  01 / BUILD
+                </span>
               </div>
               <h3 className="mt-7 font-display text-xl font-semibold tracking-tight">
                 End-to-end product ownership
@@ -831,7 +931,9 @@ export default function Index() {
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#e5edcd] text-moss">
                   <BriefcaseBusiness size={20} />
                 </span>
-                <span className="font-mono text-[10px] text-ink/35">02 / SHIP</span>
+                <span className="font-mono text-[10px] text-ink/35">
+                  02 / SHIP
+                </span>
               </div>
               <h3 className="mt-7 font-display text-xl font-semibold tracking-tight">
                 Cloud & delivery
@@ -850,7 +952,9 @@ export default function Index() {
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#e5edcd] text-moss">
                   <ArrowDownRight size={20} />
                 </span>
-                <span className="font-mono text-[10px] text-ink/35">03 / ROOTS</span>
+                <span className="font-mono text-[10px] text-ink/35">
+                  03 / ROOTS
+                </span>
               </div>
               <h3 className="mt-7 font-display text-xl font-semibold tracking-tight">
                 Engineering foundation

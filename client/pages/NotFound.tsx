@@ -5,10 +5,25 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = "Page not found | Hemanth Palakaluri";
+    const robots = document.querySelector<HTMLMetaElement>(
+      'meta[name="robots"]',
+    );
+    const previousContent = robots?.content;
+    const tag =
+      robots ?? document.head.appendChild(document.createElement("meta"));
+    tag.name = "robots";
+    tag.content = "noindex, nofollow";
+
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname,
     );
+    return () => {
+      document.title = "Hemanth Palakaluri | Senior Technical Lead";
+      if (robots && previousContent) robots.content = previousContent;
+      else tag.remove();
+    };
   }, [location.pathname]);
 
   return (
