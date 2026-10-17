@@ -20,6 +20,7 @@ A modern, high-performance developer portfolio and interactive resume website bu
   - **SnapVend**: Smart-vending management service interface.
   - **CINEMALL**: Premium cinema discovery and seat booking flow.
   - **AI Document Intelligence**: Local document assistant powered by Gradio, RAG, and semantic search.
+  - **AURA Store**: Vue 3 and Vite-powered dual-industry storefront with product comparison, multi-currency pricing, modular composables, and fault-tolerant persistence.
 - **Live Visitor Counter**:
   - Tracks unique visits per user session using `sessionStorage` deduplication to prevent count inflation from refreshes.
   - Cloud-persisted visitor counts via [CounterAPI v2](https://counterapi.dev/) with fallback handling for local offline development.
@@ -100,7 +101,8 @@ Configure your environment variables in `.env`:
 # CounterAPI Configuration (for persistent visitor counter)
 COUNTER_WORKSPACE=your_workspace_name
 COUNTER_API_KEY=your_counterapi_key
-INITIAL_VISITOR_COUNT=xxxx
+COUNTER_KEY=mypagevisitors
+INITIAL_VISITOR_COUNT=XXXX
 
 # Optional ping test response
 PING_MESSAGE="ping pong"
@@ -149,7 +151,8 @@ The repository is pre-configured with `netlify.toml`:
    - **Publish Directory**: `dist/spa`
    - **Functions Directory**: `netlify/functions`
    - **Redirects**: `/api/*` routed to `/.netlify/functions/api/:splat`
-4. Add your `COUNTER_WORKSPACE` and `COUNTER_API_KEY` in **Site Configuration > Environment Variables**.
+4. Add `COUNTER_WORKSPACE`, `COUNTER_API_KEY`, `COUNTER_KEY`, and
+   `INITIAL_VISITOR_COUNT` in **Site Configuration > Environment Variables**.
 
 ---
 

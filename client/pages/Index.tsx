@@ -210,9 +210,8 @@ const personalProjects = [
     category: "Urban mobility · Automated parking",
     description:
       "An automated rotary parking concept for dense city neighborhoods, designed around secure storage, app-based reservations, and quick vehicle retrieval.",
-    stack: "Product concept · Responsive web experience",
-    mark: "VP",
-    color: "bg-[#d9f27c]",
+    stack: "HTML5 · CSS3 · Vanilla JavaScript · Netlify",
+    image: "/project-previews/vertipark.jpg",
     href: "https://vertipark.netlify.app/",
   },
   {
@@ -220,9 +219,8 @@ const personalProjects = [
     category: "Smart retail · Managed vending",
     description:
       "A managed smart-vending service for workplaces, campuses, and residential communities, with contactless purchases and restocking support.",
-    stack: "Product concept · Responsive web experience",
-    mark: "SV",
-    color: "bg-[#d6e2da]",
+    stack: "React 18 · TypeScript · Vite 6 · Tailwind CSS",
+    image: "/project-previews/snapvend.jpg",
     href: "https://snapvend.netlify.app/",
   },
   {
@@ -230,9 +228,8 @@ const personalProjects = [
     category: "Entertainment · Premium cinema",
     description:
       "A cinema discovery and booking experience for browsing films and showtimes, choosing seats, and exploring theatre dining and amenities.",
-    stack: "Product concept · Booking experience",
-    mark: "CM",
-    color: "bg-[#e5ddd0]",
+    stack: "HTML5 · CSS3 · Vanilla JavaScript · Canvas API",
+    image: "/project-previews/cinemall.jpg",
     href: "https://cinemall.netlify.app/",
   },
   {
@@ -240,10 +237,18 @@ const personalProjects = [
     category: "Applied AI · RAG chatbot",
     description:
       "A Gradio document assistant for PDF and text collections. It combines keyword and semantic retrieval to generate grounded answers with source citations, while keeping document processing local.",
-    stack: "Python · RAG · Gradio · OpenRouter",
-    mark: "RAG",
-    color: "bg-[#d9e3ef]",
+    stack: "Python · Hybrid RAG · Gradio · OpenRouter",
+    image: "/project-previews/ai-document-intelligence.jpg",
     href: "https://github.com/phsmartswb-ai/AI_book",
+  },
+  {
+    name: "AURA Store",
+    category: "E-commerce · Dual-industry storefront",
+    description:
+      "A polished shopping experience for furniture and instruments, featuring search and filters, product comparison, wishlist and cart flows, multi-currency pricing, and fault-tolerant persistence.",
+    stack: "Vue 3 · Vite 6 · Tailwind CSS · Composables",
+    image: "/project-previews/aura-store.jpg",
+    href: "https://aurastore-shop.vercel.app/",
   },
 ];
 
@@ -457,17 +462,17 @@ export default function Index() {
               <MapPin size={14} /> Bengaluru, India
             </span>
             <a
-              className="inline-flex items-center gap-2 transition hover:text-ink"
+              className="inline-flex items-center gap-2 transition hover:text-ink underline"
               href="mailto:hemanth.palakaluri@gmail.com"
             >
               <Mail size={14} /> Email
             </a>
-            <a
+            {/* <a
               className="inline-flex items-center gap-2 transition hover:text-ink"
               href="tel:+918548881454"
             >
               <span className="text-sm">↗</span> +91 85488 81454
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -1001,17 +1006,18 @@ export default function Index() {
                 key={project.name}
                 className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] border border-ink/10 bg-paper transition hover:-translate-y-1 hover:shadow-[0_20px_50px_-32px_rgba(23,35,31,0.35)]"
               >
-                <div
-                  className={`relative mx-3 mt-3 flex aspect-[2.1] items-center overflow-hidden rounded-[1rem] px-6 ${project.color}`}
-                >
-                  <div className="absolute -right-8 -top-20 h-64 w-64 rounded-full border border-ink/15" />
-                  <div className="absolute -right-2 -top-12 h-48 w-48 rounded-full border border-ink/15" />
-                  <div className="absolute right-11 -top-4 h-32 w-32 rounded-full border border-ink/15" />
-                  <span className="relative font-display text-6xl font-semibold tracking-[-0.08em] text-ink/80 sm:text-7xl">
-                    {project.mark}
-                  </span>
-                  <span className="absolute bottom-4 left-6 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/55">
-                    0{index + 1} / 04 · Personal project
+                <div className="relative mx-3 mt-3 aspect-[2.1] overflow-hidden rounded-[1rem] bg-ink">
+                  <img
+                    src={project.image}
+                    alt={`${project.name} website preview`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/5 to-transparent" />
+                  <span className="absolute bottom-4 left-6 font-mono text-[10px] uppercase tracking-[0.16em] text-paper/80">
+                    {String(index + 1).padStart(2, "0")} /{" "}
+                    {String(personalProjects.length).padStart(2, "0")} ·
+                    Personal project
                   </span>
                   <span className="absolute bottom-4 right-4 grid h-9 w-9 place-items-center rounded-full bg-ink text-lime transition-transform group-hover:rotate-45">
                     <ArrowUpRight size={16} />
@@ -1068,7 +1074,7 @@ export default function Index() {
             </div>
             <div className="flex flex-col gap-3 text-sm text-paper/60">
               <a
-                className="flex items-center gap-2 transition hover:text-white"
+                className="flex items-center gap-2 transition hover:text-white underline"
                 href="mailto:hemanth.palakaluri@gmail.com"
               >
                 <Mail size={15} /> hemanth.palakaluri@gmail.com
@@ -1085,13 +1091,13 @@ export default function Index() {
               <VisitorCounter variant="footer" />
             </div>
             <div className="flex items-center gap-4">
-              <a
+              {/* <a
                 className="transition hover:text-white"
                 href="tel:+918548881454"
               >
                 +91 85488 81454
-              </a>
-              <span className="h-3 w-px bg-white/20" />
+              </a> */}
+              {/* <span className="h-3 w-px bg-white/20" /> */}
               <span>Designed with intent. Built to last.</span>
             </div>
           </div>
