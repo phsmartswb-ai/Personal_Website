@@ -210,7 +210,7 @@ const personalProjects = [
     category: "Urban mobility · Automated parking",
     description:
       "An automated rotary parking concept for dense city neighborhoods, designed around secure storage, app-based reservations, and quick vehicle retrieval.",
-    stack: "HTML5 · CSS3 · Vanilla JavaScript · Netlify",
+    stack: "Angular 21 · TypeScript 5.9 · Signals · SCSS",
     image: "/project-previews/vertipark.jpg",
     href: "https://vertipark.netlify.app/",
   },
@@ -222,6 +222,15 @@ const personalProjects = [
     stack: "React 18 · TypeScript · Vite 6 · Tailwind CSS",
     image: "/project-previews/snapvend.jpg",
     href: "https://snapvend.netlify.app/",
+  },
+  {
+    name: "AURA Store",
+    category: "E-commerce · Dual-industry storefront",
+    description:
+      "A polished shopping experience for furniture and instruments, featuring search and filters, product comparison, wishlist and cart flows, multi-currency pricing, and fault-tolerant persistence.",
+    stack: "Vue 3 · Vite 6 · Tailwind CSS · Composables",
+    image: "/project-previews/aura-store.jpg",
+    href: "https://aurastore-shop.vercel.app/",
   },
   {
     name: "CINEMALL",
@@ -240,16 +249,7 @@ const personalProjects = [
     stack: "Python · Hybrid RAG · Gradio · OpenRouter",
     image: "/project-previews/ai-document-intelligence.jpg",
     href: "https://github.com/phsmartswb-ai/AI_book",
-  },
-  {
-    name: "AURA Store",
-    category: "E-commerce · Dual-industry storefront",
-    description:
-      "A polished shopping experience for furniture and instruments, featuring search and filters, product comparison, wishlist and cart flows, multi-currency pricing, and fault-tolerant persistence.",
-    stack: "Vue 3 · Vite 6 · Tailwind CSS · Composables",
-    image: "/project-previews/aura-store.jpg",
-    href: "https://aurastore-shop.vercel.app/",
-  },
+  }
 ];
 
 const aiTools = [
@@ -259,6 +259,9 @@ const aiTools = [
   "Codex",
   "Cursor",
   "Cline",
+  "Kilo code",
+  "OpenCode",
+  "Devin",
 ];
 
 function SectionLabel({
